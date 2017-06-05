@@ -1,0 +1,6 @@
+# Setup
+<% report = "-f pretty -f json -o report/report.json -f html -o report/report.html" %>
+# Android
+android: <%= report %> PLATFORM=android -r features/android  -r features/step_definitions  -r features/support -e features/ios -t ~@dev
+# iOS
+ios: <%= report %> PLATFORM=ios -r features/ios  -r features/step_definitions  -r features/support -e features/android -t ~@dev
